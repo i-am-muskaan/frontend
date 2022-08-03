@@ -1,0 +1,37 @@
+
+<div class="app" style="display: flex; height: 89vh; overflow:scroll initial">
+    <CDBSidebar textColor="#ffffff" backgroundColor="#333333">
+        <CDBSidebarHeader [prefix]="icon" >
+            <ng-template #icon>
+                <i class="fa fa-bars fa-large"></i>
+            </ng-template>
+
+            Update Profile
+        </CDBSidebarHeader>
+
+        <CDBSidebarContent>
+            <CDBSidebarMenu class="sidebar-content">
+                <CDBSidebarMenuItem link='/update-profile/job-type' icon="briefcase" >
+                    Job Type                   
+                </CDBSidebarMenuItem>  
+                <CDBSidebarMenuItem link="/update-profile/phone" icon="phone" >
+                    Phone Number    
+                </CDBSidebarMenuItem>               
+                <CDBSidebarMenuItem link='/update-profile/location' icon="map-marker" >
+                    Location                  
+                </CDBSidebarMenuItem>               
+                <CDBSidebarMenuItem link="/update-profile/password" icon="lock" >
+                    Change Password
+                </CDBSidebarMenuItem>                 
+            </CDBSidebarMenu>
+        </CDBSidebarContent>
+        <div class="mt-auto">
+
+            <!-- <CDBSidebarFooter style="text-align: center; margin-top: auto;">
+                <div class="sidebar-btn-wrapper" style="padding: 20px 5px">
+                    Sidebar Footer
+                </div>
+            </CDBSidebarFooter> -->
+        </div>
+    </CDBSidebar>
+</div>

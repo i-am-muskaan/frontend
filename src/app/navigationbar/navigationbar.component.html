@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home" routerLinkActive="active"><img src="assets/applogo.png" alt="logo" style="height: 8vh;padding: -10px;"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/jobs/0" routerLinkActive="active">Jobs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/career-advice" routerLinkActive="active">Career Advice</a>
+        </li>
+        <li class="nav-item">
+          <form class="d-flex">
+            <input id="typeahead-format" type="text" name="search" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" [resultFormatter]="formatter" />
+            <button class="btn btn-outline-success" style="background: yellow; color:steelblue" (click)="serchJob()" type="submit">
+              <i class="fa fa-search" aria-hidden="true"></i></button>
+          </form>
+        </li>
+      </ul>
+      <div class="d-grid gap-5">
+        <div *ngIf="login else elseBlock" class="nav-item dropdown" >
+          <a data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown" style="color:white;">{{username}}&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+          <ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow">
+            <a routerLink="/user/profile" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
+            <a routerLink="/favorite" class="dropdown-item"><i class="fa fa-heart"></i> Favorite</a>
+            <a routerLink="/update-profile/job-type" class="dropdown-item"><i class="fa fa-edit"></i> Update Profile</a>
+            <div class="divider dropdown-divider"></div>
+            <a routerLink="" (click)="doLogout()" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
+          </ul>
+        </div>
+        <ng-template #elseBlock>
+          <button type="button" class="btn btn-info" routerLink="/user/sign-in">Log In</button>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</nav>

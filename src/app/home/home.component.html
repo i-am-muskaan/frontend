@@ -1,0 +1,33 @@
+<ngb-carousel #carousel [interval]="5000"  (slide)="onSlide($event)">
+    
+    <ng-template ngbSlide >
+        <div class="carousel-caption">
+          <h3 style="color:coral ;">Ready to start your career...</h3>
+        </div>
+        <!-- <a href="https://www.google.fr/?q=Number+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer"> -->
+          <div class="picsum-img-wrapper">
+            <img [src]="'assets/hunters-race-MYbhN8KaaEc-unsplash.jpg'" alt="My image 1 description" style="height:88vh;width: 100vw;">
+          </div>
+        <!-- </a> -->
+      </ng-template>
+      <ng-template ngbSlide >
+        <div class="carousel-caption">
+          <h3 style="color:rgb(255, 0, 0)">But, can't find a perfect job?</h3>
+        </div>
+        <!-- <a href="https://www.google.fr/?q=Number+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer"> -->
+          <div class="picsum-img-wrapper">
+            <img [src]="'assets/magnet-me-LDcC7aCWVlo-unsplash.jpg'" alt="My image 2 description" style="height:88vh;width: 100vw;">
+          </div>
+        <!-- </a> -->
+      </ng-template>
+      <ng-template ngbSlide >
+        <div class="carousel-caption">
+          <h3 style="color:rgb(0, 255, 60);">Don't worry! You will get your Dream Job here.</h3>
+        </div>
+        <a routerLink="/jobs/0"  rel="nofollow noopener noreferrer">
+          <div class="picsum-img-wrapper">
+            <img [src]="'assets/sebastian-herrmann-NbtIDoFKGO8-unsplash.jpg'" alt="My image 3 description" style="height:88vh;width: 100vw;">
+          </div>
+        </a>
+      </ng-template>
+  </ngb-carousel>

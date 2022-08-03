@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card border-0 shadow rounded-5 my-3" style="background-color:tan">
+                <div class="card-body px-5">
+                    <h4 class="card-title mb-3 text-center">Create Account</h4>
+                    <!-- <p class="d-flex justify-content-center">
+                        <a href="" class="btn btn-block btn-primary">
+                            <i class="fa fa-google" aria-hidden="true"></i>
+                            Login via Gmail
+                        </a>
+                    </p>
+                    <p class="divider-text">
+                        <span class="bg-light">OR</span>
+                    </p> -->
+                    <ngb-alert #selfClosingAlert *ngIf="successMessage" type="danger" (closed)="successMessage = ''">{{
+                        successMessage }}
+                    </ngb-alert>
+
+                    <form (ngSubmit)="onSubmit()">
+                        <div class="form-group input-group mb-3">
+                            <div class="d-flex align-items-center input-group-prepend ">
+                                <span class="input-group-text align-items-center"> <i class="fa fa-user-circle"></i>
+                                </span>
+                            </div>
+                            <input id="name" name="name" [(ngModel)]="user.name" (keyup)="nameValidation()"
+                                class="form-control" placeholder="Full name" type="text" required>
+                            <em id="nameError"></em>
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group  mb-3">
+                            <div class="d-flex align-items-center input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                            </div>
+                            <input id="email" name="email" [(ngModel)]="user.email" (keyup)="emailValidation()"
+                                class="form-control" placeholder="Email address" type="email" required>
+                            <em id="emailError"></em>
+                        </div> <!-- form-group// -->
+                        <!-- <div class="form-group input-group mb-3">
+                                <div class="d-flex align-items-center input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                                </div>
+                                <select class="custom-select" style="max-width: 120px;">
+                                    <option selected="">+971</option>
+                                    <option value="1">+972</option>
+                                    <option value="2">+198</option>
+                                    <option value="3">+701</option>
+                                </select>
+                                <input name="" class="form-control" placeholder="Phone number" type="text">
+                            </div> form-group// -->
+                        <!-- <div class="form-group input-group mb-3">
+                                <div class="d-flex align-items-center input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                                </div>
+                                <select class="form-control">
+                                    <option selected=""> Select job type</option>
+                                    <option>Designer</option>
+                                    <option>Manager</option>
+                                    <option>Accaunting</option>
+                                </select>
+                            </div> form-group end.// -->
+                        <div class="form-group input-group  mb-3">
+                            <div class="d-flex align-items-center input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input id="username" name="username" [(ngModel)]="user.username"
+                                (keyup)="usernameValidation()" class="form-control" placeholder="Username" type="text"
+                                required>
+                            <em id="usenamrError"></em>
+                        </div>
+                        <div class="form-group input-group mb-3">
+                            <div class="d-flex align-items-center input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-unlock-alt"></i> </span>
+                            </div>
+                            <input id="password" name="password" [(ngModel)]="user.password"
+                                (keyup)="passwordValidation()" class="form-control" placeholder="Create password"
+                                type="password" required>
+                            <em id="passwordError"></em>
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group mb-3">
+                            <div class="d-flex align-items-center input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                            </div>
+                            <input id="cPassword" name="cPassword" [(ngModel)]="confirmPassword"
+                                (keyup)="cPasswordValidation()" class="form-control" placeholder="Repeat password"
+                                type="password">
+                            <em id="confirmPasswordError"></em>
+                        </div> <!-- form-group// -->
+
+                        <div class="d-flex justify-content-center form-group mb-3">
+                            <button id="register" type="submit" class="btn btn-primary btn-block "> Create Account
+                            </button>
+                        </div> <!-- form-group// -->
+                        <p class="text-center">Already have an account? <a routerLink="/user/sign-in">Log In</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

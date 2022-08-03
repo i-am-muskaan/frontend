@@ -1,0 +1,59 @@
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card border-0 shadow rounded-3 my-5" style="background-color:tan">
+                <div class="card-body px-5">
+                    <h4 class="card-title mb-3 text-center">Update Location</h4>
+                    <ngb-alert #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''">{{
+                        successMessage }}
+                    </ngb-alert>
+                    <form (ngSubmit)="onSubmit()">
+                        <h6>Country</h6>
+                        <div class="form-group input-group mb-3">
+                            <div class="d-flex align-items-center input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-location-arrow"></i> </span>
+                            </div>
+                            <select name="country" [(ngModel)]="countryValue" class="from-control custom-select" style="width:200px;" (change)="loadState()">
+                                <option selected disabled>Choose Country</option>
+                                <option *ngFor="let c of countries" value="{{c.isoCode}}">{{c.name}}</option>
+                            </select>
+                           
+                        </div>
+
+                        <h6>State</h6>
+                        <div class="form-group input-group mb-3">
+                            <div class="d-flex align-items-center input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
+                            </div>
+                            <select name="state" [(ngModel)]="stateValue" class="from-control custom-select" style="width:200px ;" (change)="loadCity()">
+                                <option selected disabled>Choose State</option>
+                                <option *ngFor="let s of states" value="{{s.isoCode}}">{{s.name}}</option>
+                            </select>
+                        </div>
+
+                        <h6>City</h6>
+                        <div class="form-group input-group mb-3">
+                            <div class="d-flex align-items-center input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-map-pin"></i> </span>
+                            </div>
+                            <select name="city" [(ngModel)]="city" class="custom-select" style="width:200px ;">
+                                <option selected disabled>Choose City</option>
+                                <option *ngFor="let ct of cities" value="{{ct.name}}">{{ct.name}}</option>
+                               
+                            </select>
+                           
+                        </div>
+                        
+                        <div class="d-flex justify-content-center form-group mt-3 mb-3">
+                            <button type="submit" class="btn btn-primary btn-block"> Update </button>
+                        </div> <!-- form-group// -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

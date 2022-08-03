@@ -1,0 +1,57 @@
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"
+    integrity="sha256-3sPp8BkKUE7QyPSl6VfBByBroQbKxKG7tsusY2mhbVY=" crossorigin="anonymous" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="career-search mb-60">
+                <h5>Searched jobs for: {{catagoryDecode}}</h5>
+                <ngb-alert #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''"
+                    style="position: fixed ;">{{ successMessage }}
+                </ngb-alert>
+                <div class="filter-result">
+                    <div *ngIf="jobs.length<1; else elseBlock " class="d-flex align-items-center flex-column m-3">
+                       
+                        <h5 style="color:red ;">Sorry, No jobs found.</h5>
+                    </div>
+
+                    <ng-template #elseBlock>
+                        <div *ngFor="let job of jobs">
+
+                            <div class="job-box d-md-flex align-items-center justify-content-between mb-30"
+                                style="background-color:cornsilk;">
+                                <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+                                    <div class="job-content">
+                                        <h5 class="text-center text-md-left">{{job.name}}</h5>
+                                        <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
+                                            <li class="mr-md-4 p-2">
+                                                <i class="fa fa-building mr-2"></i>{{job.company.name}}
+                                            </li>
+                                            <li *ngIf="job.locations.length>0" class="mr-md-4 p-2">
+                                                <i class="fa fa-location-arrow mr-2"></i> {{job.locations[0].name}}
+                                            </li>
+                                            <li *ngIf="job.levels.length>0" class="mr-md-4 p-2">
+                                                <i class="fa fa-level-up mr-2"></i>{{job.levels[0].name}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="job-right my-4 flex-shrink-0">
+                                    <div class="d-flex align-items-end flex-column">
+                                        <button (click)="addFavorite(job)" type="button"
+                                            class="btn btn-outline-danger mb-3"><i class="fa fa-heart"
+                                                aria-hidden="true"></i></button>
+                                    </div>
+                                    <a href="{{job.refs.landing_page}}" target="_blank"
+                                        class="btn d-block w-100 d-sm-inline-block btn-primary">Apply now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
